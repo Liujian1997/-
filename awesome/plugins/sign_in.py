@@ -20,7 +20,7 @@ json = {} # 格式为字典
 # 这里 sign_in 为命令的名字，同时允许使用别名「签到」「打卡」
 @on_command('sign_in', aliases=('签到', '打卡'))
 async def sign_in(session: CommandSession):
-    # 从会话状态（session.state）中获取城市名称（name），如果当前不存在，则询问用户
+    # 从会话状态（session.state）中获取要签到的名称（name），如果当前不存在，则询问用户
     name = session.get('name', prompt='你想签到的名字？')
     # 获取签到的名字
     sign_in_state = await get_sign_in_state(name)
